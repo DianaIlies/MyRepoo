@@ -4,74 +4,49 @@
 import React, {Component} from 'react';
 import Dirs from "./Dirs.jsx";
 import Files from "./Files.jsx";
+import AnotherFolderContainer from "./AnotherFolderContainer.jsx";
 
-let index=0;
-var data = [
-    {
-        type: "folder",
-        name: "animals",
-        path: "/animals",
-        children: [
-            {
-                type: "folder",
-                name: "cat",
-                path: "/animals/cat",
-                children: [
-                    {
-                        type: "folder",
-                        name: "images",
-                        path: "/animals/cat/images",
-                        children: [
-                            {
-                                type: "file",
-                                name: "cat001.jpg",
-                                path: "/animals/cat/images/cat001.jpg"
-                            }, {
-                                type: "file",
-                                name: "cat001.jpg",
-                                path: "/animals/cat/images/cat002.jpg"
-                            }
-                        ]
-                    },
-                    {
-                        type: "file",
-                        name: "cat002.jpg",
-                        path: "/animals/cat/images/cat002.jpg"
-                    },
-                    {
-                        type: "file",
-                        name: "cat003.jpg",
-                        path: "/animals/cat/images/cat003.jpg"
-                    }
-                ]
-            }
-        ]
-    }
-];
+let index = 0;
 
-class FolderContainer extends  Component{
-    render()
-    {
-        let output=[];
 
-        data.forEach((item)=> {
-            console.log(item.type);
-            if(item.type ==='folder'){
-                output.push(<Dirs name={item.name} key={++index} />); }
-            else if (item.type ==='file'){
-                output.push(<Files name={item.name} key={++index} />);}
+class FolderContainer extends Component {
+    render() {
+        console.log("folderCont 111111");
+        let output = [];
 
-            if(item.children){
-                output.push(<FolderContainer data={item.children} key={++index} />);
-            }
+        if (this.props.data.type === 'folder' && (this.props.data.name).match(this.props.searchingText) !== null ) {
+            output=(<AnotherFolderContainer data={this.props.data} searchingText={this.props.searchingText}
+                                            key={++index}/>);
+        }
 
-        });
+        else {
+            this.props.data.forEach((item)=> {
+
+                if (item.type === 'folder' && ((item.name).match(this.props.searchingText) !== null || this.props.searchingText === ""))
+                    output.push(<AnotherFolderContainer data={this.props.data} searchingText={this.props.searchingText}
+                                                        key={++index}/>);
+
+                else if (item.type === 'file' && (this.props.searchingText === "" || (item.name).match(this.props.searchingText) !== null)) {
+                    output.push(<Files name={item.name} key={++index}/>);
+
+                }
+                if (item.children != null) {
+                    output.push(<FolderContainer data={item.children} searchingText={this.props.searchingText}
+                                                 key={++index}/>);
+
+                }
+
+            });
+        }
+
         return (
-            <ul>
+            <ul className="folder-container">
                 {output}
             </ul>
         )
     }
 }
+
+
 
 export default FolderContainer;

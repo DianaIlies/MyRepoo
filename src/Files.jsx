@@ -10,7 +10,7 @@ class Files extends Component{
 
     render() {
         return (
-            <li className ='file-item'>myFile</li>
+            <li className ='file-item'>{this.props.name}</li>
         );
     }
 }
