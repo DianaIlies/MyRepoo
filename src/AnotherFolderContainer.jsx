@@ -10,7 +10,7 @@ let index = 0;
 class AnotherFolderContainer extends Component {
 
     render() {
-        console.log("folderCont 222222222");
+     
         let output = [];
 
 

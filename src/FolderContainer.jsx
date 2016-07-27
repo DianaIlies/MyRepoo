@@ -11,22 +11,18 @@ let index = 0;
 
 class FolderContainer extends Component {
     render() {
-        console.log("folderCont 111111");
+
         let output = [];
 
-        if (this.props.data.type === 'folder' && (this.props.data.name).match(this.props.searchingText) !== null ) {
-            output=(<AnotherFolderContainer data={this.props.data} searchingText={this.props.searchingText}
-                                            key={++index}/>);
-        }
 
-        else {
-            this.props.data.forEach((item)=> {
+        this.props.data.forEach((item)=> {
 
-                if (item.type === 'folder' && ((item.name).match(this.props.searchingText) !== null || this.props.searchingText === ""))
-                    output.push(<AnotherFolderContainer data={this.props.data} searchingText={this.props.searchingText}
-                                                        key={++index}/>);
-
-                else if (item.type === 'file' && (this.props.searchingText === "" || (item.name).match(this.props.searchingText) !== null)) {
+            if (item.type === 'folder' && (item.name).match(this.props.searchingText) !== null) {
+                output = (<AnotherFolderContainer data={this.props.data} searchingText={this.props.searchingText}
+                                                  key={++index}/>);
+            }
+            else {
+                if (item.type === 'file' && (this.props.searchingText === "" || (item.name).match(this.props.searchingText) !== null)) {
                     output.push(<Files name={item.name} key={++index}/>);
 
                 }
@@ -36,8 +32,9 @@ class FolderContainer extends Component {
 
                 }
 
-            });
-        }
+            }
+        });
+
 
         return (
             <ul className="folder-container">
@@ -46,7 +43,6 @@ class FolderContainer extends Component {
         )
     }
 }
-
 
 
 export default FolderContainer;

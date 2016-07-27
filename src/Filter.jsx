@@ -4,7 +4,6 @@
 
 import React, {Component} from 'react';
 import FolderContainer from './FolderContainer.jsx';
-import AnotherFolderContainer from './AnotherFolderContainer.jsx';
 
 var data = [
     {
@@ -22,6 +21,18 @@ var data = [
                         name: "images",
                         path: "/animals/cat/images",
                         children: [
+                            {
+                                type: "folder",
+                                name: "myFold",
+                                path: "/animals/cat/images/myFold",
+                                children: [
+                                    {
+                                        type: "file",
+                                        name: "kittyCat.jpg",
+                                        path:"/animals/cat/images/myFold/kittyCat.jpg"
+                                    }
+                                ]
+                            },
                             {
                                 type: "file",
                                 name: "cat001.jpg",
@@ -51,12 +62,11 @@ var data = [
 
 
 class Filter extends Component {
-    // var filterText = "";
+
     constructor(props) {
         super(props);
         this.handleChange = ::this.handleChange;
         this.state = {value: ""};
-        ///this.state.value = this.state.value.bind(this);
 
     }
 
@@ -66,50 +76,30 @@ class Filter extends Component {
 
 
         });
-        console.log("in the handleChange  ->  " + event.target.value);
+
 
     }
 
     render() {
 
-        var inputF =  <input placeholder="filter..." type="text"
-                             value={this.state.value}
-                             onChange={this.handleChange}
+        var inputF = <input placeholder="filter..." type="text"
+                            value={this.state.value}
+                            onChange={this.handleChange}
 
         />;
 
-        if (this.state.value === ""){
-            console.log("emptyinput");
-            return (<div className="widget">
-                    {inputF}
-                    <div>{ this.state.value ? 'Searching for:' + this.state.value : null }</div>
-                    <AnotherFolderContainer
-                        data={data}
-                        searchingText={this.state.value}
-                    />
-                </div>
 
+        return (<div className="widget">
+            {inputF}
+            <div>{ this.state.value ? 'Searching for:' + this.state.value : null }</div>
 
-            )
-        }
+            <FolderContainer
+                data={data}
 
-       else {
-            console.log("input full");
-            return (<div className="widget">
-                    {inputF}
-                    <div>{ this.state.value ? 'Searching for:' + this.state.value : null }</div>
-
-                    <FolderContainer
-                        data={data}
-
-                        searchingText={this.state.value}
-                    />
-                </div>
-
-
-            )
+                searchingText={this.state.value}
+            />
+        </div>)
     }
-}
 }
 ;
 
