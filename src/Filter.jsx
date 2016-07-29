@@ -4,61 +4,9 @@
 
 import React, {Component} from 'react';
 import FolderContainer from './FolderContainer.jsx';
+import $ from "jquery";
 
-var data = [
-    {
-        type: "folder",
-        name: "animals",
-        path: "/animals",
-        children: [
-            {
-                type: "folder",
-                name: "cat",
-                path: "/animals/cat",
-                children: [
-                    {
-                        type: "folder",
-                        name: "images",
-                        path: "/animals/cat/images",
-                        children: [
-                            {
-                                type: "folder",
-                                name: "myFold",
-                                path: "/animals/cat/images/myFold",
-                                children: [
-                                    {
-                                        type: "file",
-                                        name: "kittyCat.jpg",
-                                        path:"/animals/cat/images/myFold/kittyCat.jpg"
-                                    }
-                                ]
-                            },
-                            {
-                                type: "file",
-                                name: "cat001.jpg",
-                                path: "/animals/cat/images/cat001.jpg"
-                            }, {
-                                type: "file",
-                                name: "cat001.jpg",
-                                path: "/animals/cat/images/cat002.jpg"
-                            }
-                        ]
-                    },
-                    {
-                        type: "file",
-                        name: "cat002.jpg",
-                        path: "/animals/cat/images/cat002.jpg"
-                    },
-                    {
-                        type: "file",
-                        name: "cat003.jpg",
-                        path: "/animals/cat/images/cat003.jpg"
-                    }
-                ]
-            }
-        ]
-    }
-];
+
 
 
 class Filter extends Component {
@@ -66,36 +14,52 @@ class Filter extends Component {
     constructor(props) {
         super(props);
         this.handleChange = ::this.handleChange;
-        this.state = {value: ""};
-
+        this.state = {value: "", data:[]};
     }
+
 
     handleChange(event) {
         this.setState({
-            value: event.target.value
-
+            value: event.target.value,
 
         });
 
 
     }
 
+
+
+    componentDidMount(){
+        $.ajax({
+            url: './src/myJson.json' ,
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                this.setState({data: data});
+
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error( status, err.toString());
+            }.bind(this)
+        });
+    }
+
+
+
+
+
     render() {
 
-        var inputF = <input placeholder="filter..." type="text"
-                            value={this.state.value}
-                            onChange={this.handleChange}
-
-        />;
-
-
         return (<div className="widget">
-            {inputF}
+            <input placeholder="filter..." type="text"
+                   value={this.state.value}
+                   onChange={this.handleChange}
+                   
+            />
             <div>{ this.state.value ? 'Searching for:' + this.state.value : null }</div>
 
             <FolderContainer
-                data={data}
-
+                data={this.state.data}
                 searchingText={this.state.value}
             />
         </div>)

@@ -10,15 +10,17 @@ let index = 0;
 class AnotherFolderContainer extends Component {
 
     render() {
-     
-        let output = [];
 
+        let output = [];
+console.log(this.props.isCollapsed);
 
         this.props.data.forEach((item)=> {
 
             if (item.type === 'folder') {
 
-                output.push(<Dirs name={item.name} key={++index}/>);
+                output.push(
+                    <Dirs name={item.name} myItem={item} key={++index} handle={this.props.handle}/>
+                );
 
             }
             else if (item.type === 'file') {
@@ -26,8 +28,7 @@ class AnotherFolderContainer extends Component {
 
             }
             if (item.children != null) {
-                output.push(<AnotherFolderContainer data={item.children} searchingText={this.props.searchingText}
-                                                    key={++index}/>);
+                output.push(<AnotherFolderContainer data={item.children} key={++index} handle={this.props.handle}/>);
 
             }
 
