@@ -50,6 +50,26 @@ body {
 }
 
 .folder-item {
+  position: relative;
   font-weight: bold;
   background: transparent  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6UlEQVQ4T62TvQ3CMBCF31OgDxPACGwATAAjeAOgSKpECgoCiRTABmYDNgA2yAawAUpNwiGHH0GBlATcuPH3vbPvTPy4+COPXKCCpY30sgORPIU6dLtF5FTeYgWgA2KtQ1fnQj8amQ2C81fJVcZ65sZUfhTr0GmrYN5iZjWLpIqwC0oLVjah8hd7WPUBsvQIwC4ieD9zFwgDELuyMCCHuwDcAliWFgg2jwoQgxxWEDzeICfZqSDoPa9QHjZpVq1B5UUnEIXa91GhSKKnrm3mQEqXngNyMNNqBKYD/QqSsQ6d1X8+U4X0F3IDjRRPOikDqHUAAAAASUVORK5CYII=') no-repeat left center;
 }
+
+
+.true:before{
+  content: url("http://icons.iconarchive.com/icons/yusuke-kamiyamane/fugue/16/toggle-expand-icon.png");
+
+  position: absolute;
+  left: -20px;
+
+
+}
+.false:before{
+  content: url("https://cdn2.iconfinder.com/data/icons/fugue/icon/toggle_collapse.png");
+  position: absolute;
+  left: -20px;
+}
+.hide + ul{
+  display:none;
+}
+
