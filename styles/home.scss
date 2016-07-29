@@ -2,26 +2,38 @@ h1 {
   color: tomato;
 }
 
-
 body {
   margin-top: 20px;
-  background-color: #ECEFF1;
+
+  background: url("http://www.hd-wallpapers.com/download/light-spot-effect-blurred-blue_1440x900_13-wide.jpg");
+
 }
 
 .widget {
   padding: 18px;
-  background-color: #fff;
+  background-color: #D0FDFC;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  opacity:0.7;
+
 }
+
+//#bun{
+//  position: absolute;
+//
+//}
 
 .widget > input {
   display: block;
-  width: 100%;
+  width: 90%;
   min-height: 30px;
   margin-bottom: 20px;
   border: 0 none;
   border-bottom: 1px solid #ccc;
   outline: none;
+  opacity:0.8;
+  //background: url("http://3.bp.blogspot.com/-RwvOr4Tsl_4/Use-oT8LlAI/AAAAAAAAJPU/Qa17y8XaMvo/s1600/Bun24.png") no-repeat right center ;
+  //background-size: 60px;
+
 }
 
 .folder-container {
@@ -46,30 +58,62 @@ body {
 }
 
 .file-item {
-  background: transparent  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVQ4T2NkgIKE2q4DMDZW+j+jAgPj//0LmssSkeUZEQZ0/1/QXArnoxuSUNPdwMDIEMDwn2HDgpbSBpg8aQYw/H/PwMCQwMDIMHFBc9kCkCGkGODAwMAAwiBd9TDXYhiQUNtdwPCfgR97ePy7uKClfENCLcK7RLsA2UC8BoADi4HhP44YObigpfTAsHfBgMcC3vwAzze0TAcUuKDrAMN/RlwJCNVcRoaPC5pLA0CCALOMnRHTr6OKAAAAAElFTkSuQmCC') no-repeat left center;
+  background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVQ4T2NkgIKE2q4DMDZW+j+jAgPj//0LmssSkeUZEQZ0/1/QXArnoxuSUNPdwMDIEMDwn2HDgpbSBpg8aQYw/H/PwMCQwMDIMHFBc9kCkCGkGODAwMAAwiBd9TDXYhiQUNtdwPCfgR97ePy7uKClfENCLcK7RLsA2UC8BoADi4HhP44YObigpfTAsHfBgMcC3vwAzze0TAcUuKDrAMN/RlwJCNVcRoaPC5pLA0CCALOMnRHTr6OKAAAAAElFTkSuQmCC') no-repeat left center;
 }
 
 .folder-item {
   position: relative;
   font-weight: bold;
-  background: transparent  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6UlEQVQ4T62TvQ3CMBCF31OgDxPACGwATAAjeAOgSKpECgoCiRTABmYDNgA2yAawAUpNwiGHH0GBlATcuPH3vbPvTPy4+COPXKCCpY30sgORPIU6dLtF5FTeYgWgA2KtQ1fnQj8amQ2C81fJVcZ65sZUfhTr0GmrYN5iZjWLpIqwC0oLVjah8hd7WPUBsvQIwC4ieD9zFwgDELuyMCCHuwDcAliWFgg2jwoQgxxWEDzeICfZqSDoPa9QHjZpVq1B5UUnEIXa91GhSKKnrm3mQEqXngNyMNNqBKYD/QqSsQ6d1X8+U4X0F3IDjRRPOikDqHUAAAAASUVORK5CYII=') no-repeat left center;
+  cursor: pointer;
+
+
 }
 
+.folder-item:hover {
+  background-color: #9BECE9;
+  border-radius: 100px;
+}
 
-.true:before{
+.true:before {
   content: url("http://icons.iconarchive.com/icons/yusuke-kamiyamane/fugue/16/toggle-expand-icon.png");
-
   position: absolute;
   left: -20px;
 
-
 }
-.false:before{
+
+.false:before {
   content: url("https://cdn2.iconfinder.com/data/icons/fugue/icon/toggle_collapse.png");
   position: absolute;
   left: -20px;
 }
-.hide + ul{
-  display:none;
+
+.hide + ul {
+  display: none;
+
+}
+
+.true {
+  background: transparent url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-folder-128.png") no-repeat left center;
+  background-size: 20px;
+
+
+}
+
+.false {
+  background: transparent url('http://cdn.mysitemyway.com/icons-watermarks/simple-black/bfa/bfa_folder-open/bfa_folder-open_simple-black_128x128.png') no-repeat left center;
+  background-size: 20px;
+
+}
+
+input {
+  background: url("http://3.bp.blogspot.com/-RwvOr4Tsl_4/Use-oT8LlAI/AAAAAAAAJPU/Qa17y8XaMvo/s1600/Bun24.png") no-repeat left center;
+
+  padding: 20px;
+  padding-left: 80px;
+
+  font-size: 13px;
+  color: gray;
+  background-size: 60px;
+
 }
 

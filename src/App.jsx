@@ -70,6 +70,7 @@ class App extends Component {
         return (
             <div>
                 <Filter />
+               
             </div>
 
         );

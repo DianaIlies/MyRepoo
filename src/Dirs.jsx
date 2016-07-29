@@ -9,8 +9,7 @@ class Dirs extends Component {
         super(props);
         this.state = {isCollapsed: true};
     }
-
-
+    
     handleChange() {
         this.setState({isCollapsed: !this.state.isCollapsed})
     }

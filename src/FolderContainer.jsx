@@ -6,7 +6,7 @@ import Files from "./Files.jsx";
 import AnotherFolderContainer from "./AnotherFolderContainer.jsx";
 
 
-let index = 0;
+var index = 0;
 
 
 class FolderContainer extends Component {

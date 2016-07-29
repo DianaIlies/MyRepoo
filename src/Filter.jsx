@@ -20,8 +20,7 @@ class Filter extends Component {
 
     handleChange(event) {
         this.setState({
-            value: event.target.value,
-
+            value: event.target.value
         });
 
 
@@ -51,10 +50,12 @@ class Filter extends Component {
     render() {
 
         return (<div className="widget">
+
             <input placeholder="filter..." type="text"
                    value={this.state.value}
                    onChange={this.handleChange}
-                   
+                    className = "search"
+
             />
             <div>{ this.state.value ? 'Searching for:' + this.state.value : null }</div>
 

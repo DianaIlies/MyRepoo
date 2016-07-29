@@ -5,21 +5,21 @@ import React, {Component} from 'react';
 import Dirs from "./Dirs.jsx";
 import Files from "./Files.jsx";
 
-let index = 0;
+var index = 0;
 
 class AnotherFolderContainer extends Component {
 
     render() {
 
         let output = [];
-console.log(this.props.isCollapsed);
+
 
         this.props.data.forEach((item)=> {
 
             if (item.type === 'folder') {
 
                 output.push(
-                    <Dirs name={item.name} myItem={item} key={++index} handle={this.props.handle}/>
+                    <Dirs name={item.name} myItem={item} key={++index}/>
                 );
 
             }
@@ -28,7 +28,7 @@ console.log(this.props.isCollapsed);
 
             }
             if (item.children != null) {
-                output.push(<AnotherFolderContainer data={item.children} key={++index} handle={this.props.handle}/>);
+                output.push(<AnotherFolderContainer data={item.children} key={++index}/>);
 
             }
 
