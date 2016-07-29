@@ -17,10 +17,6 @@ body {
 
 }
 
-//#bun{
-//  position: absolute;
-//
-//}
 
 .widget > input {
   display: block;
@@ -31,8 +27,6 @@ body {
   border-bottom: 1px solid #ccc;
   outline: none;
   opacity:0.8;
-  //background: url("http://3.bp.blogspot.com/-RwvOr4Tsl_4/Use-oT8LlAI/AAAAAAAAJPU/Qa17y8XaMvo/s1600/Bun24.png") no-repeat right center ;
-  //background-size: 60px;
 
 }
 
@@ -117,3 +111,12 @@ input {
 
 }
 
+input:hover{
+  background: url("https://khalil-shreateh.com/stickers/bun-stickers_files/851575_392310030866309_792706737_n.gif") no-repeat left center ;
+  padding: 20px;
+  padding-left: 80px;
+
+  font-size: 13px;
+  color: gray;
+  background-size: 60px;
+}
