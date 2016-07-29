@@ -3,14 +3,13 @@
  */
 
 
-
 import React, {Component} from 'react';
 
-class Files extends Component{
+class Files extends Component {
 
     render() {
         return (
-            <li className ='file-item'>
+            <li className='file-item'>
                 {this.props.name}</li>
         );
     }

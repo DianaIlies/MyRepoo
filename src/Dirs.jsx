@@ -7,22 +7,12 @@ import React, {Component} from 'react';
 class Dirs extends Component {
     constructor(props) {
         super(props);
-        this.state = {isCollapsed: false};
+        this.state = {isCollapsed: true};
     }
 
 
     handleChange() {
-        if (this.state.isCollapsed) {
-            this.setState({
-                isCollapsed: false
-            })
-        }
-        else {
-            this.setState({
-                isCollapsed: true
-            })
-        }
-
+        this.setState({isCollapsed: !this.state.isCollapsed})
     }
 
 

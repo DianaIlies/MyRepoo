@@ -13,24 +13,22 @@ class FolderContainer extends Component {
     render() {
 
         let output = [];
-console.log(this.props.data);
-console.log(this.props.data.name);
 
         this.props.data.forEach((item)=> {
 
             if (item.type === 'folder' && (item.name).match(this.props.searchingText) !== null) {
                 output.pop();
-                output.push (<AnotherFolderContainer data={this.props.data} searchingText={this.props.searchingText}
-                                                  key={++index} handle={this.props.handle}/>);
+                output.push(<AnotherFolderContainer data={this.props.data} searchingText={this.props.searchingText}
+                                                    key={++index}/>);
             }
             else {
-                if (item.type === 'file' && (this.props.searchingText === "" || (item.name).match(this.props.searchingText) !== null)) {
+                if (item.type === 'file' && (item.name).match(this.props.searchingText) !== null) {
                     output.push(<Files name={item.name} key={++index}/>);
 
                 }
                 if (item.children != null) {
                     output.push(<FolderContainer data={item.children} searchingText={this.props.searchingText}
-                                                 key={++index} handle={this.props.handle}/>);
+                                                 key={++index}/>);
 
                 }
 
@@ -39,7 +37,7 @@ console.log(this.props.data.name);
 
 
         return (
-            <ul  className="folder-container">
+            <ul className="folder-container">
                 {output}
             </ul>
         )
